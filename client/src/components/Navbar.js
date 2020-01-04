@@ -44,6 +44,9 @@ export default class NavBar extends Component {
             <H1>European-African MarketPlace</H1>
           </Link>
           <div className="buttons-nav">
+            <Link to="/Profile">
+              <Button>Profile</Button>
+            </Link>
             <Link to="/">
               <Button>Register</Button>
             </Link>
