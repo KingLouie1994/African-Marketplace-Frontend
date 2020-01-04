@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from axios;
 class Login extends Component {
   constructor() {
     super();
@@ -24,6 +24,16 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     };
+
+    axios
+    .post("https://lbs-african-marketplace.herokuapp.com/auth/login", user)
+    .then(response => {
+      localStorage.setItem("token", response.data.token);
+      props.history.push('/profile');
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   render() {

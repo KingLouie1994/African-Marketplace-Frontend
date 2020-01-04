@@ -28,9 +28,15 @@ class Register extends Component {
       password: this.state.password
     };
 
-    register(newUser).then(res => {
-      this.props.history.push(`/login`);
-    });
+    axios
+      .post("https://lbs-african-marketplace.herokuapp.com/auth/register", newUser)
+      .then(response => {
+        props.history.push('/login');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   }
 
   render() {
