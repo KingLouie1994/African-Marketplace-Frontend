@@ -1,29 +1,22 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import axiosWithAuth from "./axiosWithAuth";
+import ProfileCard from './ProfileCard';
 
-class Profile extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      errors: {}
-    };
-  }
+function Profile(props) {
+  const [user, setUser] = useState({});
 
-  render() {
-    return (
-      <div className="container">
-        <div className="col-sm-8 mx-auto">
-          <h1>Profile</h1>
-        </div>
-        <tbody>
-          <tr>
-            <td>Username</td>
-            <td>{this.state.username}</td>
-          </tr>
-        </tbody>
-      </div>
-    );
-  }
+  useEffect(() => {
+    axiosWithAuth()
+      .get("https://lbs-african-marketplace.herokuapp.com//users")
+      .then(response => {
+        setUser(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [user]);
+
+  return <ProfileCard user={user} />;
 }
 
 export default Profile;

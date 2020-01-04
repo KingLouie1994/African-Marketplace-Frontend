@@ -1,65 +1,80 @@
-import React, { Component } from "react";
+import React, { useRef } from "react";
+import axios from "axios";
+import styled from "styled-components";
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      errors: {}
+function LoginForm(props) {
+  const usernameRef = useRef("");
+  const passwordRef = useRef("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const data = {
+      username: usernameRef.current.value,
+      password: passwordRef.current.value
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    axios
+      .post("https://lbs-african-marketplace.herokuapp.com/auth/login", data)
+      .then(response => {
+        localStorage.setItem("token", response.data.token);
+        props.history.push("/profile");
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-
-    const user = {
-      username: this.state.username,
-      password: this.state.password
-    };
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form onSubmit={this.onSubmit}>
-              <h1>Login</h1>
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Enter Your Username"
-                  value={this.state.username}
-                  onChange={this.onChange}
-                />
-                <label htmlFor="password">password</label>
-                <input
-                  type="text"
-                  name="password"
-                  placeholder="Enter Your password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              <button type="submit" className="btn btn-block mt-4">
-                Login
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <StyledLogin>
+      <h1>Welcome to the European African Marketplace!</h1>
+      <h2>Please Login below!</h2>
+      <form onSubmit={handleSubmit}>
+        <p>User name:</p>
+        <input name="username" type="text" ref={usernameRef} />
+        <p>Password:</p>
+        <input name="password" type="password" ref={passwordRef} />
+        <button type="submit">Log-in</button>
+      </form>
+    </StyledLogin>
+  );
 }
 
-export default Login;
+export default LoginForm;
+
+// Styling here:
+
+const StyledLogin = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vw;
+  padding: 1vw;
+  background: lightblue;
+
+  p {
+    text-align: center;
+  }
+
+  h1,
+  h2 {
+    color: orange;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+
+    & input {
+      border-color: papayawhip;
+    }
+
+    & button {
+      background: white;
+      color: palevioletred;
+      font-size: 1em;
+      margin: 1em;
+      padding: 0.25em 1em;
+      border: 2px solid palevioletred;
+      border-radius: 3px;
+    }
+  }
+`;
