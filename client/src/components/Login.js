@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-class Register extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
       username: "",
-      department: "",
       password: "",
       errors: {}
     };
@@ -21,15 +20,10 @@ class Register extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const newUser = {
+    const user = {
       username: this.state.username,
-      department: this.state.department,
       password: this.state.password
     };
-
-    // register(newUser).then(res => {
-    //   this.props.history.push(`/login`);
-    // });
   }
 
   render() {
@@ -38,7 +32,7 @@ class Register extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form onSubmit={this.onSubmit}>
-              <h1>Register</h1>
+              <h1>Login</h1>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input
@@ -48,21 +42,17 @@ class Register extends Component {
                   value={this.state.username}
                   onChange={this.onChange}
                 />
+                <label htmlFor="password">password</label>
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="Enter Your password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
               </div>
-              <label htmlFor="password">password</label>
-              <input
-                type="text"
-                name="password"
-                placeholder="Enter Your password"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-              <select>
-                <option value={this.state.department}>Buyer</option>
-                <option value={this.state.department}>Seller</option>
-              </select>
               <button type="submit" className="btn btn-block mt-4">
-                Register
+                Login
               </button>
             </form>
           </div>
@@ -72,4 +62,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;
