@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProfileCard = props => {
+const UsersList = props => {
   return (
     <Card>
-      <h1>Here should be your Profile page</h1>
-      <h2>User name: {props.user.username} </h2>
+      <h3>{props.users.id}</h3>
+      <h3>{props.users.username}</h3>
+      <h3>{props.users.department}</h3>
     </Card>
   );
 };
 
-export default ProfileCard;
+export default UsersList;
 
 // Styling here:
 

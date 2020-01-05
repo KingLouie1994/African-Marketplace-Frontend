@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import Profile from "./components/Profile";
+import AllUsers from "./components/AllUsers";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Navbar />
-        <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/userslist" component={AllUsers} />
         <Route exact path="/" component={Register} />
         <Route exact path="/login" component={Login} />
       </header>
