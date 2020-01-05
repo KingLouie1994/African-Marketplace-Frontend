@@ -34,7 +34,10 @@ function Register(props) {
         <p>Password:</p>
         <input name="password" type="text" ref={passwordRef} />
         <p>Department:</p>
-        <input name="department" type="text" ref={departmentRef} />
+        <select>
+        <option value="Buyer" type="text" ref={departmentRef}>Buyer</option> 
+        <option value="Seller" type="text" ref={departmentRef}>Seller</option> 
+        </select>
         <button type="submit">SignUp</button>
         <p>Already have an account? <br/> Login here</p>
         <button type="submit">Login</button>
