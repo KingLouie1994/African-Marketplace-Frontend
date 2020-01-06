@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Nav() {
+  function handleSubmit() {
+    localStorage.clear();
+  }
+
   return (
     <Navigation>
       <Link to="/">Sign Up</Link>
       <Link to="/login">Login</Link>
       <Link to="/profile">Profile</Link>
       <Link to="/userslist">Userslist</Link>
+      <Link to="/login" onClick={() => handleSubmit()}>
+        Logout
+      </Link>
     </Navigation>
   );
 }
@@ -24,6 +31,8 @@ const Navigation = styled.nav`
     padding: 0 2rem;;
     justify-content: space-between;
     height: 5rem;
+
+  }
 
     & a {
         color: #69C8ECFF;
