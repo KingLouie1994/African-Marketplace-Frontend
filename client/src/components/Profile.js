@@ -7,14 +7,14 @@ function Profile(props) {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://lbs-african-marketplace.herokuapp.com/users/:id`)
+      .get(`https://lbs-african-marketplace.herokuapp.com/users/${localStorage.id}`)
       .then(response => {
         setProfile(response.data);
       })
       .catch(error => {
         console.log(error);
       });
-  },[profile]);
+  });
 
   return (
     <section>

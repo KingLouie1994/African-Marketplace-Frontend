@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import * as JWT from "jwt-decode";
 
 function LoginForm(props) {
   const usernameRef = useRef("");
@@ -16,6 +17,9 @@ function LoginForm(props) {
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", data)
       .then(response => {
         localStorage.setItem("token", response.data.token);
+        const token = response.data.token;
+        const decodedToken = JWT(token);
+        localStorage.setItem("id", decodedToken.subject);
         props.history.push(`/profile`);
       })
       .catch(error => {

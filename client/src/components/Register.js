@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -35,11 +35,11 @@ function Register(props) {
         <p>Password:</p>
         <input name="password" type="text" ref={passwordRef} />
         <p>Department:</p>
-        <select>
-          <option value="buyer" type="text" ref={departmentRef}>
+        <select ref={departmentRef}>
+          <option value="buyer" type="text">
             Buyer
           </option>
-          <option value="seller" type="text" ref={departmentRef}>
+          <option value="seller" type="text">
             Seller
           </option>
         </select>
