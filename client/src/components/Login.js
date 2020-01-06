@@ -16,7 +16,7 @@ function LoginForm(props) {
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", data)
       .then(response => {
         localStorage.setItem("token", response.data.token);
-        props.history.push("/Userslist");
+        props.history.push(`/profile`);
       })
       .catch(error => {
         console.log(error);

@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Register(props) {
   const usernameRef = useRef("");
@@ -27,7 +28,7 @@ function Register(props) {
   return (
     <StyledRegister>
       <h1>Welcome to the European African Marketplace!</h1>
-      <h2>Please register to start the survey</h2>
+      <h2>Please register to start</h2>
       <form onSubmit={handleSubmit}>
         <p>User name:</p>
         <input name="username" type="text" ref={usernameRef} />
@@ -35,12 +36,20 @@ function Register(props) {
         <input name="password" type="text" ref={passwordRef} />
         <p>Department:</p>
         <select>
-        <option value="Buyer" type="text" ref={departmentRef}>Buyer</option> 
-        <option value="Seller" type="text" ref={departmentRef}>Seller</option> 
+          <option value="buyer" type="text" ref={departmentRef}>
+            Buyer
+          </option>
+          <option value="seller" type="text" ref={departmentRef}>
+            Seller
+          </option>
         </select>
         <button type="submit">SignUp</button>
-        <p>Already have an account? <br/> Login here</p>
-        <button type="submit">Login</button>
+        <p>
+          Already have an account? <br /> Login here
+        </p>
+        <Link to="/login">
+          <button>Login </button>
+        </Link>
       </form>
     </StyledRegister>
   );

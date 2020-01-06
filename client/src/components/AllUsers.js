@@ -7,10 +7,9 @@ function AllUsers(props) {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://lbs-african-marketplace.herokuapp.com/users/id`)
+      .get(`https://lbs-african-marketplace.herokuapp.com/users`)
       .then(response => {
         setUsers(response.data);
-        console.log(response.data);
       })
       .catch(error => {
         console.log(error);
