@@ -28,21 +28,21 @@ function Register(props) {
   return (
     <StyledRegister>
       <h1>Welcome to the European African Marketplace!</h1>
-      <h2>Please register to start</h2>
+      <h3>Register to start</h3>
       <form onSubmit={handleSubmit}>
-        <p>User name:</p>
-        <input name="username" type="text" ref={usernameRef} />
-        <p>Password:</p>
-        <input name="password" type="text" ref={passwordRef} />
-        <p>Department:</p>
-        <select ref={departmentRef}>
+        <Title>User name:</Title>
+        <Input name="username" type="text" ref={usernameRef} />
+        <Title>Password:</Title>
+        <Input name="password" type="text" ref={passwordRef} />
+        <Title>Department:</Title>
+        <Select ref={departmentRef}>
           <option value="buyer" type="text">
             Buyer
           </option>
           <option value="seller" type="text">
             Seller
           </option>
-        </select>
+        </Select>
         <button type="submit">SignUp</button>
         <p>
           Already have an account? <br /> Login here
@@ -63,10 +63,13 @@ const StyledRegister = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1vw;
+  margin: 10vw;
   padding: 1vw;
-  background: lightblue;
   color: orange;
+  &:hover {
+    box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
+    border: 0.04rem solid rgba(0, 0, 0, 0.2);
+  }
 
   & p {
     color: black;
@@ -83,13 +86,51 @@ const StyledRegister = styled.div`
     }
 
     & button {
-      background: white;
-      color: palevioletred;
-      font-size: 1em;
-      margin: 1em;
-      padding: 0.25em 1em;
-      border: 2px solid palevioletred;
-      border-radius: 3px;
+      border-radius: 5px;
+      border: 1px solid blue;
+      padding: 10px;
+      background: transparent;
+      transistion: 0.15s ease-in-out;
+      margin: 10px 0;
+      color: lightblue;
+      margin-left: 25px;
+      &:hover {
+        cursor: pointer;
+        background: #00b5e2;
+        color: blue;
+      }
     }
   }
+`;
+
+const Input = styled.input`
+  border-color: papayawhip;
+  border-radius: 5px;
+  border: 0;
+  color: #00b5e2;
+  line-height: 27px;
+  height: 30px;
+  float: right;
+  width: 400px;
+`;
+
+const Title = styled.h6`
+  margin: 4px 0 0 25px;
+  color: #00b5e2;
+  border-radius: 5px;
+  border: 1px blue;
+  font-weight: lighter;
+`;
+
+const Select = styled.select`
+  background: white;
+  width: 400px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -webkit-appearance: none;
+  color: #00b5e2;
 `;

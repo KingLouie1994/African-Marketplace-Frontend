@@ -38,11 +38,11 @@ export default AllUsers;
 // Styling here:
 
 const Card = styled.div`
-  display: flex;
+  display: grid;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   margin: 1vw;
   padding: 1vw;
   background: lightblue;
-  color: orange;
 `;
