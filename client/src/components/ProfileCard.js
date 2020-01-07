@@ -2,6 +2,8 @@ import React from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import AddItem from "./AddItem";
+import UsersItemsList from "./UsersItemsList";
 
 const ProfileCard = props => {
   function handleSubmit() {
@@ -21,6 +23,8 @@ const ProfileCard = props => {
     <Card>
       <h3>Your Username: {props.profile.username}</h3>
       <h3>You are registered as a: {props.profile.department}</h3>
+      <UsersItemsList />
+      <AddItem />
       <Link to="/login">
         <button onClick={() => handleSubmit()}>Delete your profile</button>
       </Link>
