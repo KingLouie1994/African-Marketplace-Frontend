@@ -2,134 +2,112 @@ import React, { useRef } from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import styled from "styled-components";
 
-function AddItem(props) {
+function EditItem() {
   const nameRef = useRef("");
   const descriptionRef = useRef("");
   const priceRef = useRef("");
   const locationRef = useRef("");
   const categoryRef = useRef("");
-  const user_idRef = useRef(localStorage.id);
 
   function handleSubmit(event) {
     event.preventDefault();
     const data = {
-      name: nameRef.current.value,
-      description: descriptionRef.current.value,
-      price: priceRef.current.value,
-      location: locationRef.current.value,
-      category: categoryRef.current.value,
-      user_id: user_idRef.current.value
+      nameRef: nameRef.current.value,
+      descriptionRef: descriptionRef.current.value,
+      priceRef: priceRef.current.value,
+      locationRef: locationRef.current.value,
+      categoryRef: categoryRef.current.value
     };
     axiosWithAuth()
-      .post(
-        "https://lbs-african-marketplace.herokuapp.com/items/additem/",
-        data
-      )
+      .put(`https://lbs-african-marketplace.herokuapp.com/items`, data)
       .then(response => {})
       .catch(error => {
         console.log(error);
       });
   }
   return (
-    <StyledAdd>
+    <StyledEdit>
       <form onSubmit={handleSubmit}>
-        <Title>Name:</Title>
+        <p>Name:</p>
         <input
           name="name"
           type="text"
           ref={nameRef}
           placeholder="Enter your name"
         />
-        <Title>Description:</Title>
+        <p>Description:</p>
         <input
           name="Description"
           type="text"
-          ref={descriptionRef}
+          ref={nameRef}
           placeholder="Enter the description of your item"
         />
-        <Title>Price:</Title>
+        <p>Price:</p>
         <input
           name="Price"
           type="integer"
           ref={priceRef}
           placeholder="Enter your price"
         />
-        <Title>Location:</Title>
+        <p>Location:</p>
         <input
           name="Location"
           type="text"
           ref={locationRef}
           placeholder="What's your location"
         />
-        <Title>Category:</Title>
+        <p>Category:</p>
         <input
           name="Category"
           type="text"
           ref={categoryRef}
           placeholder="What Category is your item"
         />
-        <Title>Your ID:</Title>
-        <select ref={user_idRef}>
-          <option value={`${localStorage.id}`} type="text">
-            {localStorage.id}
-          </option>
-        </select>
-        <button type="submit">Add Item</button>
+        <Button type="submit">Edit Item</Button>
       </form>
-    </StyledAdd>
+    </StyledEdit>
   );
 }
+export default EditItem;
 
-export default AddItem;
-
-// Styling here:
-
-const StyledAdd = styled.div`
+const StyledEdit = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1vw;
   padding: 1vw;
+  background: lightblue;
   color: orange;
+
   & p {
     color: black;
     lighten: 40%;
     text-align: center;
   }
+
   & form {
     display: flex;
     flex-direction: column;
+
     & input {
       border-color: papayawhip;
-      border-radius: 5px;
-      border: 0;
-      color: #00B5E2;
-      line-height: 27px;
-      height: 30px;
-      float: right;
-      width: 200px;
     }
-    & button {
-      border-radius: 5px;
-      border: 1px solid blue;
-      padding: 10px;
-      background: transparent;
-      transistion: 0.15s ease-in-out;
-      margin: 10px 0;
-      color: lightblue;
-      margin-left: 25px;
-        &:hover {
-          cursor: pointer;
-          background: #00B5E2;
-          color: blue;
-    }
-   
-    }
+  }
 `;
 
-const Title = styled.h6`
-  margin: 4px 0 0 25px;
-  color: #00b5e2;
+const Button = styled.button`
   border-radius: 5px;
-  border: 1px blue;
+  border: 1px solid blue;
+  padding: 10px;
+  background: transparent;
+  transistion: 0.15s ease-in-out;
+  margin: 10px 0;
+  color: blue;
+  margin-left: 25px;
+
+  &:hover {
+    cursor: pointer;
+    background: black;
+    color: red;
+  }
 `;

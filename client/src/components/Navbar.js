@@ -8,7 +8,7 @@ export default function Nav() {
   }
 
   return (
-    <Navigation>
+    <Navigation className="navbar navbar-expand-sm navbar-dark mb-4">
       <Link to="/">Sign Up</Link>
       <Link to="/login">Login</Link>
       <Link to="/profile">Profile</Link>

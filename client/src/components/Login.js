@@ -29,13 +29,23 @@ function LoginForm(props) {
 
   return (
     <StyledLogin>
-      <h1>Welcome to the European African Marketplace!</h1>
-      <h2>Please Login below!</h2>
+      <h1>European African Marketplace!</h1>
+      <h2>Login below!</h2>
       <form onSubmit={handleSubmit}>
-        <p>User name:</p>
-        <input name="username" type="text" ref={usernameRef} />
-        <p>Password:</p>
-        <input name="password" type="password" ref={passwordRef} />
+        <Title>User name:</Title>
+        <Input
+          name="username"
+          type="text"
+          ref={usernameRef}
+          placeholder="Enter Your Username"
+        />
+        <Title>Password:</Title>
+        <Input
+          name="password"
+          type="password"
+          ref={passwordRef}
+          placeholder="Enter Your Password"
+        />
         <button type="submit">Log-in</button>
       </form>
     </StyledLogin>
@@ -50,11 +60,17 @@ const StyledLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1vw;
+  margin: 10vw;
   padding: 1vw;
-  background: lightblue;
-
+  color: orange;
+  &:hover {
+    box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
+    border: 0.04rem solid rgba(0, 0, 0, 0.2);
+  }
   p {
+    text-align: center;
+    color: black;
+    lighten: 40%;
     text-align: center;
   }
 
@@ -72,13 +88,39 @@ const StyledLogin = styled.div`
     }
 
     & button {
-      background: white;
-      color: palevioletred;
-      font-size: 1em;
-      margin: 1em;
-      padding: 0.25em 1em;
-      border: 2px solid palevioletred;
-      border-radius: 3px;
+      border-radius: 5px;
+      border: 1px solid blue;
+      font-weight: bold;
+      padding: 10px;
+      background: transparent;
+      transistion: 0.15s ease-in-out;
+      margin: 10px 0;
+      color: lightblue;
+      margin-left: 25px;
+      &:hover {
+        cursor: pointer;
+        background: #00b5e2;
+        color: blue;
+      }
     }
   }
+`;
+
+const Input = styled.input`
+  border-color: papayawhip;
+  border-radius: 5px;
+  border: 0;
+  color: #00b5e2;
+  line-height: 27px;
+  height: 30px;
+  float: right;
+  width: 400px;
+`;
+
+const Title = styled.h6`
+  margin: 4px 0 0 25px;
+  color: #00b5e2;
+  border-radius: 5px;
+  border: 1px blue;
+  font-weight: lighter;
 `;

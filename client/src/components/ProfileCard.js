@@ -21,8 +21,12 @@ const ProfileCard = props => {
 
   return (
     <Card>
-      <h3>Your Username: {props.profile.username}</h3>
-      <h3>You are registered as a: {props.profile.department}</h3>
+      <Title>
+        Username: <em>{props.profile.username}</em>{" "}
+      </Title>
+      <Title>
+        You are registered as a: <em>{props.profile.department}</em>{" "}
+      </Title>
       <UsersItemsList />
       <AddItem />
       <Link to="/login">
@@ -40,7 +44,6 @@ const Card = styled.div`
   align-items: center;
   margin: 1vw;
   padding: 1vw;
-  background: white;
   color: orange;
   border-radius: 5px;
   transition: 0.2s ease-in-out
@@ -48,6 +51,8 @@ const Card = styled.div`
   margin: 30px;
   &:hover {
     box-shadow: 0px 5px 37px -22px  rgba(0, 0, 0, 1);
+    border: 0.04rem solid rgba(0, 0, 0, 0.2);
+
   }
 `;
 
@@ -58,10 +63,20 @@ const Button = styled.button`
   background: transparent;
   transistion: 0.15s ease-in-out;
   margin: 10px 0;
-  color: blue;
+  color: lightblue;
   margin-left: 25px;
   &:hover {
     cursor: pointer;
     background: black;
     color: red;
-  }`
+  }
+`;
+
+const Title = styled.h6`
+  font-weight: lighter;
+  margin: 10px 0 0 25px;
+  color: #00b5e2;
+  border-radius: 5px;
+  border: 1px solid blue;
+  padding: 10px;
+`;
