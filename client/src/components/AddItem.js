@@ -13,17 +13,19 @@ function AddItem(props) {
   function handleSubmit(event) {
     event.preventDefault();
     const data = {
-        name: nameRef.current.value,
-        description: descriptionRef.current.value,
-        price: priceRef.current.value,
-        location: locationRef.current.value,
-        category: categoryRef.current.value,
-        user_id: user_idRef.current.value
-      };
+      name: nameRef.current.value,
+      description: descriptionRef.current.value,
+      price: priceRef.current.value,
+      location: locationRef.current.value,
+      category: categoryRef.current.value,
+      user_id: user_idRef.current.value
+    };
     axiosWithAuth()
-      .post("https://lbs-african-marketplace.herokuapp.com/items/additem/", data)
-      .then(response => {
-      })
+      .post(
+        "https://lbs-african-marketplace.herokuapp.com/items/additem/",
+        data
+      )
+      .then(response => {})
       .catch(error => {
         console.log(error);
       });
@@ -43,7 +45,7 @@ function AddItem(props) {
         <input
           name="Description"
           type="text"
-          ref={nameRef}
+          ref={descriptionRef}
           placeholder="Enter the description of your item"
         />
         <p>Price:</p>
@@ -103,13 +105,18 @@ const StyledAdd = styled.div`
       border-color: papayawhip;
     }
     & button {
-      background: white;
-      color: palevioletred;
-      font-size: 1em;
-      margin: 1em;
-      padding: 0.25em 1em;
-      border: 2px solid palevioletred;
-      border-radius: 3px;
+      border-radius: 5px;
+      border: 1px solid blue;
+      padding: 10px;
+      background: transparent;
+      transistion: 0.15s ease-in-out;
+      margin: 10px 0;
+      color: blue;
+      margin-left: 25px;
+        &:hover {
+          cursor: pointer;
+          background: black;
+          color: red;
     }
   }
 `;
