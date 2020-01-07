@@ -15,7 +15,7 @@ export default function OtherUsersProfile(props) {
       .catch(error => {
         console.log(error);
       });
-  }, [users]);
+  });
 
   return (
     <div>
