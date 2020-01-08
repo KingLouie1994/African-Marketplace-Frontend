@@ -85,8 +85,10 @@ function AddItem(props) {
             </select>
             <button type="submit">Add Item</button>
           </form>
+          <Button onClick={() => setShowForm(false)}>
+            Hide the form to add items
+          </Button>
         </StyledAdd>
-        <Button onClick={() => setShowForm(false)}>Hide the form</Button>
       </div>
     );
   }
@@ -103,6 +105,8 @@ const StyledAdd = styled.div`
   margin: 1vw;
   padding: 1vw;
   color: orange;
+  border: solid 1px white;
+  border-radius: 5px;
   & p {
     color: black;
     lighten: 40%;
