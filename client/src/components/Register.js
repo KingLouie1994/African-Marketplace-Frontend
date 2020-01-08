@@ -38,7 +38,6 @@ function Register(props) {
           <Input name="password" type="text" ref={passwordRef} />
           <Title>Department</Title>
           <Select ref={departmentRef}>
-            <option type="text"></option>
             <option value="buyer" type="text">
               Buyer
             </option>

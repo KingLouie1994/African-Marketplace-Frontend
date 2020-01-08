@@ -10,6 +10,8 @@ function AddItem(props) {
   const categoryRef = useRef("");
   const user_idRef = useRef(localStorage.id);
 
+  const [showForm, setShowForm] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const data = {
@@ -30,54 +32,64 @@ function AddItem(props) {
         console.log(error);
       });
   }
-  return (
-    <StyledAdd>
-      <form onSubmit={handleSubmit}>
-        <Title>Name:</Title>
-        <input
-          name="name"
-          type="text"
-          ref={nameRef}
-          placeholder="Enter your name"
-        />
-        <Title>Description:</Title>
-        <input
-          name="Description"
-          type="text"
-          ref={descriptionRef}
-          placeholder="Enter the description of your item"
-        />
-        <Title>Price:</Title>
-        <input
-          name="Price"
-          type="integer"
-          ref={priceRef}
-          placeholder="Enter your price"
-        />
-        <Title>Location:</Title>
-        <input
-          name="Location"
-          type="text"
-          ref={locationRef}
-          placeholder="What's your location"
-        />
-        <Title>Category:</Title>
-        <input
-          name="Category"
-          type="text"
-          ref={categoryRef}
-          placeholder="What Category is your item"
-        />
-        <Title>Your ID:</Title>
-        <select ref={user_idRef}>
-          <option value={`${localStorage.id}`} type="text">
-            {localStorage.id}
-          </option>
-        </select>
-        <button type="submit">Add Item</button>
-      </form>
-    </StyledAdd>
-  );
+
+  if (showForm === false) {
+    return (
+      <Button onClick={() => setShowForm(true)}>Show form to add items</Button>
+    );
+  } else {
+    return (
+      <div>
+        <StyledAdd>
+          <form onSubmit={handleSubmit}>
+            <Title>Name:</Title>
+            <input
+              name="name"
+              type="text"
+              ref={nameRef}
+              placeholder="Enter your name"
+            />
+            <Title>Description:</Title>
+            <input
+              name="Description"
+              type="text"
+              ref={descriptionRef}
+              placeholder="Enter the description of your item"
+            />
+            <Title>Price:</Title>
+            <input
+              name="Price"
+              type="integer"
+              ref={priceRef}
+              placeholder="Enter your price"
+            />
+            <Title>Location:</Title>
+            <input
+              name="Location"
+              type="text"
+              ref={locationRef}
+              placeholder="What's your location"
+            />
+            <Title>Category:</Title>
+            <input
+              name="Category"
+              type="text"
+              ref={categoryRef}
+              placeholder="What Category is your item"
+            />
+            <Title>Your ID:</Title>
+            <select ref={user_idRef}>
+              <option value={`${localStorage.id}`} type="text">
+                {localStorage.id}
+              </option>
+            </select>
+            <button type="submit">Add Item</button>
+          </form>
+        </StyledAdd>
+        <Button onClick={() => setShowForm(false)}>Hide the form</Button>
+      </div>
+    );
+  }
 }
 
 export default AddItem;
@@ -123,8 +135,23 @@ const StyledAdd = styled.div`
           background: #00B5E2;
           color: blue;
     }
-   
     }
+`;
+
+const Button = styled.button`
+  border-radius: 5px;
+  border: 1px solid blue;
+  padding: 10px;
+  background: transparent;
+  transistion: 0.15s ease-in-out;
+  margin: 10px 0;
+  color: lightblue;
+  margin-left: 25px;
+  &:hover {
+    cursor: pointer;
+    background: #00b5e2;
+    color: blue;
+  }
 `;
 
 const Title = styled.h6`

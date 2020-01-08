@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export default function UsersItemsList(props) {
   const [items, setItems] = useState([]);
+  const [showItems, setShowItems] = useState(false);
 
   useEffect(() => {
     axiosWithAuth()
@@ -21,30 +22,34 @@ export default function UsersItemsList(props) {
   function handleSubmit(id) {
     axiosWithAuth()
       .delete(`https://lbs-african-marketplace.herokuapp.com/items/${id}/`)
-      .then(res => {
-      })
+      .then(res => {})
       .catch(error => {
         console.log(error);
       });
   }
 
-  return (
-    <div>
-      {items.map((item, index) => {
-        return (
-          <ItemCard key={index}>
-            <Title>Item ID: {item.id}</Title>
-            <Title>Name : {item.name}</Title>
-            <Title>Description : {item.description}</Title>
-            <Title>Price : {item.price}$</Title>
-            <Title>location : {item.location}</Title>
-            <Title>category : {item.category}</Title>
-            <Button onClick={() => handleSubmit(item.id)}>Delete Item</Button>
-          </ItemCard>
-        );
-      })}
-    </div>
-  );
+  if (showItems === false) {
+    return <Button onClick={() => setShowItems(true)}>Show my Items</Button>;
+  } else {
+    return (
+      <div>
+        {items.map((item, index) => {
+          return (
+            <ItemCard key={index}>
+              <Title>Item ID: {item.id}</Title>
+              <Title>Name : {item.name}</Title>
+              <Title>Description : {item.description}</Title>
+              <Title>Price : {item.price}$</Title>
+              <Title>location : {item.location}</Title>
+              <Title>category : {item.category}</Title>
+              <Button onClick={() => handleSubmit(item.id)}>Delete Item</Button>
+            </ItemCard>
+          );
+        })}
+        <Button onClick={() => setShowItems(false)}>Hide my Items</Button>
+      </div>
+    );
+  }
 }
 
 // Styling here:
