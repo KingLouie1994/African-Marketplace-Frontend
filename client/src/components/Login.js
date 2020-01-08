@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import * as JWT from "jwt-decode";
+import img from "../img/hero1.jpg";
 
 function LoginForm(props) {
   const usernameRef = useRef("");
@@ -66,6 +67,7 @@ const StyledLogin = styled.div`
   &:hover {
     box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
     border: 0.04rem solid rgba(0, 0, 0, 0.2);
+    background-image: url(${img});
   }
   p {
     text-align: center;
