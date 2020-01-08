@@ -22,7 +22,7 @@ export default function UsersItemsList(props) {
   function handleSubmit(id) {
     axiosWithAuth()
       .delete(`https://lbs-african-marketplace.herokuapp.com/items/${id}/`)
-      .then(res => {})
+      .then(response => {})
       .catch(error => {
         console.log(error);
       });

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import AddItem from "./AddItem";
 import UsersItemsList from "./UsersItemsList";
+import EditItem from "./EditItem";
 
 const ProfileCard = props => {
   function handleSubmit() {
@@ -30,6 +31,7 @@ const ProfileCard = props => {
         </Title>
         <UsersItemsList />
         <AddItem />
+        <EditItem />
         <Link to="/login">
           <Button onClick={() => handleSubmit()}>Delete your profile</Button>
         </Link>
