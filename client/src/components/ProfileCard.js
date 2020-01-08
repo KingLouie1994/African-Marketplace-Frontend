@@ -19,21 +19,40 @@ const ProfileCard = props => {
       });
   }
 
-  return (
-    <Card>
-      <Title>
-        Username: <em>{props.profile.username}</em>{" "}
-      </Title>
-      <Title>
-        You are registered as a: <em>{props.profile.department}</em>{" "}
-      </Title>
-      <UsersItemsList />
-      <AddItem />
-      <Link to="/login">
-        <Button onClick={() => handleSubmit()}>Delete your profile</Button>
-      </Link>
-    </Card>
-  );
+  if (localStorage.department === "seller") {
+    return (
+      <Card>
+        <Title>
+          Username: <em>{props.profile.username}</em>{" "}
+        </Title>
+        <Title>
+          You are registered as a: <em>{props.profile.department}</em>{" "}
+        </Title>
+        <UsersItemsList />
+        <AddItem />
+        <Link to="/login">
+          <Button onClick={() => handleSubmit()}>Delete your profile</Button>
+        </Link>
+      </Card>
+    );
+  } else {
+    return (
+      <Card>
+        <Title>
+          Username: <em>{props.profile.username}</em>{" "}
+        </Title>
+        <Title>
+          You are registered as a: <em>{props.profile.department}</em>{" "}
+        </Title>
+        <h3>
+          Go to the Sellerslist to watch profiles and see what items they offer!
+        </h3>
+        <Link to="/login">
+          <Button onClick={() => handleSubmit()}>Delete your profile</Button>
+        </Link>
+      </Card>
+    );
+  }
 };
 export default ProfileCard;
 

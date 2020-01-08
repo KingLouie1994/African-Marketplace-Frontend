@@ -5,7 +5,6 @@ const UsersList = props => {
   return (
     <Card>
       <Title>{props.users.username}</Title>
-      <Title>{props.users.department}</Title>
     </Card>
   );
 };
@@ -13,7 +12,7 @@ const UsersList = props => {
 export default UsersList;
 
 const Card = styled.div`
-  display: grid;
+  display: flex;
   grid-template-columns: auto auto auto auto;
   flex-direction: column;
   align-items: center;

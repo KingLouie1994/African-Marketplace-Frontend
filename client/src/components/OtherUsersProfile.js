@@ -33,7 +33,6 @@ export default function OtherUsersProfile(props) {
   return (
     <div className="row">
       <StyledDiv>Welcome to {users.username} Portal</StyledDiv>
-
       <h3>I'm a {users.department} on this marketplace</h3>
       <h3>Find My Listing Below:</h3>
 

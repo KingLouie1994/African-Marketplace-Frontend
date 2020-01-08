@@ -21,6 +21,7 @@ function LoginForm(props) {
         const token = response.data.token;
         const decodedToken = JWT(token);
         localStorage.setItem("id", decodedToken.subject);
+        localStorage.setItem("department", decodedToken.department);
         props.history.push(`/profile`);
       })
       .catch(error => {

@@ -20,14 +20,16 @@ function AllUsers(props) {
 
   return (
     <section>
-      <h1>List of all Users:</h1>
+      <h1>List of all Sellers:</h1>
       {users.map((users, index) => {
-        return (
-          <Card key={index}>
-            <UsersList key={index} users={users} />
-            <GoToUsersProfile users={users} />
-          </Card>
-        );
+        if (users.department === "seller") {
+          return (
+            <Card key={index}>
+              <UsersList key={index} users={users} />
+              <GoToUsersProfile users={users} />
+            </Card>
+          );
+        }
       })}
     </section>
   );
