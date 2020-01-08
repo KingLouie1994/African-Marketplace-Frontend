@@ -17,9 +17,12 @@ const ItemCard = props => {
 export default ItemCard;
 
 // Styling here:
+
 const Card = styled.div`
-  display: grid;
-  color: orange;
+  display: flex;
+  flex-direction: column;
+  align-item: space-between;
+  border-color: white;
   border-radius: 5px;
   transition: 0.2s ease-in-out
   width: 333px;
@@ -28,7 +31,7 @@ const Card = styled.div`
     box-shadow: 0px 5px 100px -22px  rgba(0, 0, 0, 1);
     border: 0.04rem solid rgba(0, 0, 0, 0.2);
   }
-  border-color: transparent;
+  border-color: white;
   transition: all 1s linear;
 `;
 

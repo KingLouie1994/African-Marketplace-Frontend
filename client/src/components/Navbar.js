@@ -12,7 +12,7 @@ export default function Nav() {
       <Link to="/">Sign Up</Link>
       <Link to="/login">Login</Link>
       <Link to="/profile">Profile</Link>
-      <Link to="/userslist">Userslist</Link>
+      <Link to="/userslist">Sellerslist</Link>
       <Link to="/itemlist">Itemlist</Link>
       <Link to="/login" onClick={() => handleSubmit()}>
         Logout

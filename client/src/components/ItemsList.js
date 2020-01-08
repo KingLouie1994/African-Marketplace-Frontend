@@ -19,7 +19,7 @@ function ItemsList(props) {
 
   return (
     <section>
-      <h1>List of your Items:</h1>
+      <h1>List of all Items:</h1>
       {items.map((items, index) => {
         return <ItemCard key={index} items={items} />;
       })}
