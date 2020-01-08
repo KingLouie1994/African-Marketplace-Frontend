@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 export default function OtherUsersProfile(props) {
   const [users, setUsers] = useState({});
   const [usersItems, setUsersItems] = useState([]);
+  const [showList, setShowList] = useState(false);
 
   useEffect(() => {
     axiosWithAuth()
@@ -30,26 +31,41 @@ export default function OtherUsersProfile(props) {
       console.log(error);
     });
 
-  return (
-    <div className="row">
-      <StyledDiv>Welcome to {users.username}'s Profile</StyledDiv>
-      <h3>I'm a {users.department} on this marketplace</h3>
-      <h3>Find My Listing Below:</h3>
-
-      {usersItems.map((item, index) => {
-        return (
-          <ItemCard key={index}>
-            <Title>{item.id}</Title>
-            <Title>Name : {item.name}</Title>
-            <Title>Description : {item.description}</Title>
-            <Title>Price : {item.price}$</Title>
-            <Title>location : {item.location}</Title>
-            <Title>category : {item.category}</Title>
-          </ItemCard>
-        );
-      })}
-    </div>
-  );
+  if (showList === false) {
+    return (
+      <div>
+        <StyledDiv>Welcome to {users.username}'s Profile</StyledDiv>
+        <h3>I'm a {users.department} on this marketplace</h3>
+        <Button onClick={() => setShowList(true)}>
+          Click here if you want to see my Items!
+        </Button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <div>
+          <StyledDiv>Welcome to {users.username}'s Profile</StyledDiv>
+          <h3>I'm a {users.department} on this marketplace</h3>
+        </div>
+        <div>
+          {usersItems.map((item, index) => {
+            return (
+              <ItemCard key={index}>
+                <Title>{item.id}</Title>
+                <Title>Name : {item.name}</Title>
+                <Title>Description : {item.description}</Title>
+                <Title>Price : {item.price}$</Title>
+                <Title>location : {item.location}</Title>
+                <Title>category : {item.category}</Title>
+              </ItemCard>
+            );
+          })}
+        </div>
+        <Button onClick={() => setShowList(false)}>Hide my Items</Button>
+      </div>
+    );
+  }
 }
 
 // Styling here:
@@ -76,6 +92,22 @@ const Title = styled.h3`
   border-radius: 5px;
   border: 1px solid #f0f8ff;
   padding: 10px;
+`;
+
+const Button = styled.button`
+  border-radius: 5px;
+  border: 1px solid blue;
+  padding: 10px;
+  background: transparent;
+  transistion: 0.15s ease-in-out;
+  margin: 10px 0;
+  color: lightblue;
+  margin-left: 25px;
+  &:hover {
+    cursor: pointer;
+    background: #00b5e2;
+    color: blue;
+  }
 `;
 
 function rotationBuilder(degree) {
