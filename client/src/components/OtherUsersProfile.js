@@ -31,19 +31,17 @@ export default function OtherUsersProfile(props) {
     });
 
   return (
-    <div>
-      <StyledDiv>Hello, my name is {users.username}</StyledDiv>
+    <div className="row">
+      <StyledDiv>Welcome to {users.username} Portal</StyledDiv>
       <h3>I'm a {users.department} on this marketplace</h3>
-      <h3>This is my Itemlist:</h3>
+      <h3>Find My Listing Below:</h3>
+
       {usersItems.map((item, index) => {
         return (
           <ItemCard key={index}>
-            <Title>{item.id}</Title>
-            <Title>Name : {item.name}</Title>
-            <Title>Description : {item.description}</Title>
-            <Title>Price : {item.price}$</Title>
-            <Title>location : {item.location}</Title>
-            <Title>category : {item.category}</Title>
+            <Title>Name: {item.name}</Title>
+            <Title>Description: {item.description}</Title>
+            <Title>Price: {item.price}</Title>
           </ItemCard>
         );
       })}
@@ -67,6 +65,7 @@ margin: 30px;
 border-color: transparent;
 transition: all 1s linear;
 `;
+
 const Title = styled.h3`
   font-weight: lighter;
   margin: 10px 0 0 25px;
@@ -75,6 +74,7 @@ const Title = styled.h3`
   border: 1px solid #f0f8ff;
   padding: 10px;
 `;
+
 function rotationBuilder(degree) {
   const rotation = keyframes`
     0% {
@@ -93,6 +93,7 @@ function rotationBuilder(degree) {
   `;
   return rotation;
 }
+
 const StyledDiv = styled.div`
   animation: ${rotationBuilder(10)} 1s linear infinite;
 `;
