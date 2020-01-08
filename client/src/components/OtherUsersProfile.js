@@ -32,16 +32,19 @@ export default function OtherUsersProfile(props) {
 
   return (
     <div className="row">
-      <StyledDiv>Welcome to {users.username} Portal</StyledDiv>
+      <StyledDiv>Welcome to {users.username}'s Profile</StyledDiv>
       <h3>I'm a {users.department} on this marketplace</h3>
       <h3>Find My Listing Below:</h3>
 
       {usersItems.map((item, index) => {
         return (
           <ItemCard key={index}>
-            <Title>Name: {item.name}</Title>
-            <Title>Description: {item.description}</Title>
-            <Title>Price: {item.price}</Title>
+            <Title>{item.id}</Title>
+            <Title>Name : {item.name}</Title>
+            <Title>Description : {item.description}</Title>
+            <Title>Price : {item.price}$</Title>
+            <Title>location : {item.location}</Title>
+            <Title>category : {item.category}</Title>
           </ItemCard>
         );
       })}
