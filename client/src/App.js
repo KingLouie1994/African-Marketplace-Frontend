@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
 import OtherUsersProfile from "./components/OtherUsersProfile";
-import PersonalItemList from "./components/PersonalItemList";
+import ItemsList from "./components/ItemsList";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/userslist" component={AllUsers} />
-        <PrivateRoute exact path="/itemlist" component={PersonalItemList} />
+        <PrivateRoute exact path="/itemlist" component={ItemsList} />
         {users.map((user, index) => {
           return (
             <PrivateRoute
