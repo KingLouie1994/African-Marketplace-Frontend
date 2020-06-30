@@ -15,7 +15,6 @@ const Button = styled.button`
   border: 1px solid blue;
   padding: 10px;
   background: #00b5e2;
-  transistion: 0.15s ease-in-out;
   margin: 10px 0;
   color: lightblue;
   margin-left: 25px;

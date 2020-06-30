@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import img1 from "../img/hero.jpg";
 
 function Register(props) {
   const usernameRef = useRef("");
@@ -14,57 +13,51 @@ function Register(props) {
     const data = {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
-      department: departmentRef.current.value
+      department: departmentRef.current.value,
     };
     axios
       .post("https://lbs-african-marketplace.herokuapp.com/auth/register", data)
-      .then(response => {
+      .then((response) => {
         props.history.push("/login");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   return (
-    <Background>
-      <StyledRegister>
-        <h1>Welcome to the European African Marketplace!</h1>
-        <h3>Register To Trade</h3>
-        <form onSubmit={handleSubmit}>
-          <Title>User name</Title>
-          <Input name="username" type="text" ref={usernameRef} />
-          <Title>Password</Title>
-          <Input name="password" type="text" ref={passwordRef} />
-          <Title>Department</Title>
-          <Select ref={departmentRef}>
-            <option value="buyer" type="text">
-              Buyer
-            </option>
-            <option value="seller" type="text">
-              Seller
-            </option>
-          </Select>
-          <button type="submit">SignUp</button>
-          <Title>
-            Already have an account? <br /> Login here
-          </Title>
-          <Link to="/login">
-            <button>Login </button>
-          </Link>
-        </form>
-      </StyledRegister>
-    </Background>
+    <StyledRegister>
+      <h1>Welcome to the European African Marketplace!</h1>
+      <h3>Register To Trade</h3>
+      <form onSubmit={handleSubmit}>
+        <Title>User name</Title>
+        <Input name="username" type="text" ref={usernameRef} />
+        <Title>Password</Title>
+        <Input name="password" type="text" ref={passwordRef} />
+        <Title>Department</Title>
+        <Select ref={departmentRef}>
+          <option value="buyer" type="text">
+            Buyer
+          </option>
+          <option value="seller" type="text">
+            Seller
+          </option>
+        </Select>
+        <button type="submit">SignUp</button>
+        <Title>
+          Already have an account? <br /> Login here
+        </Title>
+        <Link to="/login">
+          <button>Login </button>
+        </Link>
+      </form>
+    </StyledRegister>
   );
 }
 
 export default Register;
 
 // Styling here:
-
-const Background = styled.div`
-  background-image: url(${img1});
-`;
 
 const StyledRegister = styled.div`
   display: flex;
@@ -80,7 +73,6 @@ const StyledRegister = styled.div`
 
   & p {
     color: black;
-    lighten: 40%;
     text-align: center;
   }
 
@@ -97,7 +89,6 @@ const StyledRegister = styled.div`
       border: 1px solid blue;
       padding: 10px;
       background: transparent;
-      transistion: 0.15s ease-in-out;
       margin: 10px 0;
       color: lightblue;
       margin-left: 25px;

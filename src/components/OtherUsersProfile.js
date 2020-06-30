@@ -74,7 +74,7 @@ const ItemCard = styled.div`
 display: grid;
 color: orange;
 border-radius: 5px;
-transition: 0.2s ease-in-out
+transition: 0.2s ease-in-out;
 width: 333px;
 margin: 30px;
 &:hover {
@@ -99,7 +99,6 @@ const Button = styled.button`
   border: 1px solid blue;
   padding: 10px;
   background: transparent;
-  transistion: 0.15s ease-in-out;
   margin: 10px 0;
   color: lightblue;
   margin-left: 25px;

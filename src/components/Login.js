@@ -73,7 +73,6 @@ const StyledLogin = styled.div`
   p {
     text-align: center;
     color: black;
-    lighten: 40%;
     text-align: center;
   }
 
@@ -96,7 +95,6 @@ const StyledLogin = styled.div`
       font-weight: bold;
       padding: 10px;
       background: transparent;
-      transistion: 0.15s ease-in-out;
       margin: 10px 0;
       color: lightblue;
       margin-left: 25px;

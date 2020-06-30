@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const UsersList = props => {
+const UsersList = (props) => {
   return (
     <Card>
       <Title>{props.users.username}</Title>
@@ -21,15 +21,14 @@ const Card = styled.div`
   background: white;
   color: orange;
   border-radius: 10px;
-  transition: 0.2s ease-in-out
+  transition: 0.2s ease-in-out;
   width: 333px;
   margin: 30px;
   &:hover {
-    box-shadow: 0px 5px 100px -22px  rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 100px -22px rgba(0, 0, 0, 1);
   }
 `;
 const Title = styled.h6`
-  font-weight: ;
   margin: 10px 0 0 25px;
   color: #00b5e2;
   border-radius: 5px;

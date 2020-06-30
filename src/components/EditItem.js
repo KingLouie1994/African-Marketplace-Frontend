@@ -18,10 +18,10 @@ function EditItem(id) {
       .get(
         `https://lbs-african-marketplace.herokuapp.com/users/${localStorage.id}/items`
       )
-      .then(response => {
+      .then((response) => {
         setItems(response.data.items);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   });
@@ -34,17 +34,17 @@ function EditItem(id) {
       description: descriptionRef.current.value,
       price: priceRef.current.value,
       location: locationRef.current.value,
-      category: categoryRef.current.value
+      category: categoryRef.current.value,
     };
 
-    items.map(item => {
+    items.forEach((item) => {
       axiosWithAuth()
         .put(
           `https://lbs-african-marketplace.herokuapp.com/items/${item.id}`,
           data
         )
-        .then(response => {})
-        .catch(error => {
+        .then((response) => {})
+        .catch((error) => {
           console.log(error);
         });
     });
@@ -120,7 +120,7 @@ function EditItem(id) {
 export default EditItem;
 
 const StyledEdit = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1vw;
@@ -130,7 +130,6 @@ display: flex;
   border-radius: 5px;
   & p {
     color: black;
-    lighten: 40%;
     text-align: center;
   }
   & form {
@@ -140,7 +139,7 @@ display: flex;
       border-color: papayawhip;
       border-radius: 5px;
       border: 0;
-      color: #00B5E2;
+      color: #00b5e2;
       line-height: 27px;
       height: 30px;
       float: right;
@@ -151,16 +150,16 @@ display: flex;
       border: 1px solid blue;
       padding: 10px;
       background: transparent;
-      transistion: 0.15s ease-in-out;
       margin: 10px 0;
       color: lightblue;
       margin-left: 25px;
-        &:hover {
-          cursor: pointer;
-          background: #00B5E2;
-          color: blue;
+      &:hover {
+        cursor: pointer;
+        background: #00b5e2;
+        color: blue;
+      }
     }
-    }
+  }
 `;
 
 const Title = styled.h6`
@@ -175,7 +174,6 @@ const Button = styled.button`
   border: 1px solid blue;
   padding: 10px;
   background: transparent;
-  transistion: 0.15s ease-in-out;
   margin: 10px 0;
   color: lightblue;
   margin-left: 25px;

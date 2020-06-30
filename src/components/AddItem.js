@@ -20,15 +20,15 @@ function AddItem(props) {
       price: priceRef.current.value,
       location: locationRef.current.value,
       category: categoryRef.current.value,
-      user_id: user_idRef.current.value
+      user_id: user_idRef.current.value,
     };
     axiosWithAuth()
       .post(
         "https://lbs-african-marketplace.herokuapp.com/items/additem/",
         data
       )
-      .then(response => {})
-      .catch(error => {
+      .then((response) => {})
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -109,7 +109,6 @@ const StyledAdd = styled.div`
   border-radius: 5px;
   & p {
     color: black;
-    lighten: 40%;
     text-align: center;
   }
   & form {
@@ -119,7 +118,7 @@ const StyledAdd = styled.div`
       border-color: papayawhip;
       border-radius: 5px;
       border: 0;
-      color: #00B5E2;
+      color: #00b5e2;
       line-height: 27px;
       height: 30px;
       float: right;
@@ -130,16 +129,16 @@ const StyledAdd = styled.div`
       border: 1px solid blue;
       padding: 10px;
       background: transparent;
-      transistion: 0.15s ease-in-out;
       margin: 10px 0;
       color: lightblue;
       margin-left: 25px;
-        &:hover {
-          cursor: pointer;
-          background: #00B5E2;
-          color: blue;
+      &:hover {
+        cursor: pointer;
+        background: #00b5e2;
+        color: blue;
+      }
     }
-    }
+  }
 `;
 
 const Button = styled.button`
@@ -147,7 +146,6 @@ const Button = styled.button`
   border: 1px solid blue;
   padding: 10px;
   background: transparent;
-  transistion: 0.15s ease-in-out;
   margin: 10px 0;
   color: lightblue;
   margin-left: 25px;

@@ -21,10 +21,10 @@ export default ItemCard;
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  align-item: space-between;
+  align-items: space-between;
   border-color: white;
   border-radius: 5px;
-  transition: 0.2s ease-in-out
+  transition: 0.2s ease-in-out;
   width: 333px;
   margin: 30px;
   &:hover {

@@ -20,7 +20,7 @@ function ItemsList(props) {
 
   const categories = [];
 
-  items.map(item => {
+  items.forEach(item => {
     categories.push(item.category);
   });
 
