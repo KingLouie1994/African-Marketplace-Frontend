@@ -21,7 +21,7 @@ function AllUsers(props) {
   return (
     <section>
       <h1>List of all Sellers:</h1>
-      {users.forEach((users, index) => {
+      {users.map((users, index) => {
         if (users.department === "seller") {
           return (
             <Card key={index}>

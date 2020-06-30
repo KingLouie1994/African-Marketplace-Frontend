@@ -37,7 +37,7 @@ function EditItem(id) {
       category: categoryRef.current.value,
     };
 
-    items.forEach((item) => {
+    items.map((item) => {
       axiosWithAuth()
         .put(
           `https://lbs-african-marketplace.herokuapp.com/items/${item.id}`,
