@@ -1,3 +1,5 @@
+# Lambda School frontend project to use all CRUD operations building a marketplace
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
